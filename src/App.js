@@ -10,6 +10,7 @@ import { BrowserRouter as Router,
 
 // Nuestras Vistas para enrutar (Login y Dashboard)
 import Login from './Views/Login';
+import SignUp from './Views/SignUp'
 import Dashboard from './Views/Dashboard';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Redirect from='/' to='/login' />}
         </Route>
         <Route exact path='/login' component={Login} />
+        <Route exact path='/signup' component={SignUp} />
         <Route exact path='/dashboard'>
             {loggedIn ?
               <Dashboard />

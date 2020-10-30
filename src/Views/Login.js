@@ -55,6 +55,11 @@ export default function Login (){
         history.push('/dashboard');
     }
 
+    const navegarSignUp = (e) => {
+        e.preventDefault();
+        history.push('/signup');
+    }
+
     return (
         <Container component='main' maxWidth='xs'>
             <CssBaseLine />
@@ -109,7 +114,7 @@ export default function Login (){
                             </Link>
                         </Grid>
                         <Grid  item xs={12} sm={6}>
-                            <Link href='#' variant='body2'>
+                            <Link href='#' onClick={navegarSignUp} variant='body2'>
                                 {'No tengo cuenta'}
                             </Link>
                         </Grid>
