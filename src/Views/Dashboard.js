@@ -131,7 +131,8 @@ const useStyles = makeStyles(theme => ({
     // estilos para el Container que agrupará todo el contenido del Dashboard
     container: {
         paddingTop: theme.spacing(4),
-        paddingBottom: theme.spacing(4)
+        paddingBottom: theme.spacing(4),
+        marginTop: 40
     },
 
 }));
