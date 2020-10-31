@@ -31,7 +31,7 @@ import AppBarView from './Views/AppBarView';
 
 // Componentes propios
 // Componente Lista de elementos del menú
-import { mainListItems, settingsListItems } from './Components/ListItems';
+import MainListItems, { settingsListItems } from './Components/ListItems';
 
 const drawerWidth = 240;
 
@@ -102,7 +102,7 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
 
-  let loggedIn = true; // La que nos indica si el usuario está o no logueado
+  let loggedIn = false; // La que nos indica si el usuario está o no logueado
 
   // classes servirá para personalizar los estilos de los componentes
   const classes = useStyles();
@@ -112,7 +112,6 @@ function App() {
 
   // Manejar el cierre del menú desplegable
   const handleDrawerClose = () => {
-      //alert("Close from parent");
       setOpen(false);
   }
 
@@ -143,7 +142,7 @@ function App() {
                           <Divider />
                           {/* Menu List Component */}
                           <List>
-                              {mainListItems}
+                              <MainListItems />
                           </List>
                           <Divider />
                           {/* Settings List Component */}
@@ -160,17 +159,24 @@ function App() {
                                   {/* Aquí van nuestros componentes */}
                                   <Switch>
                                       <Route exact path='/'>
-                                          {loggedIn ?
-                                          <Redirect from= '/' to='/dashboard' />
-                                          :
-                                          <Redirect from='/' to='/login' />}
+                                          <Redirect from= '/' to='/informes' />
                                       </Route>
-                                      <Route exact path='/dashboard'>
+                                      <Route exact path='/pedidos'>
                                           {loggedIn ?
-                                          <Dashboard />
+                                          <h1>TODO PEDIDOS</h1>
                                           :
                                           <Redirect from='/dashboard' to='/login' />
                                           }
+                                      </Route>
+                                      <Route exact path='/usuarios'>
+                                          {loggedIn ?
+                                          <h1>TODO USUARIOS</h1>
+                                          :
+                                          <Redirect from='/dashboard' to='/login' />
+                                          }
+                                      </Route>
+                                      <Route exact path='/informes'>
+                                            <Dashboard />
                                       </Route>
                                   </Switch>
                               </Container>

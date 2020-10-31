@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 // Materail UI Components
 import ListItem from '@material-ui/core/ListItem';
@@ -12,54 +13,54 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import PeopleIcon from '@material-ui/icons/People';
 import SettingsIcon from '@material-ui/icons/Settings';
 
-
-const navegar = () => {
-    console.log('Navegamos a algún lado');
-}
-
 // Lista de navegación a vistas de la aplicación
-export const mainListItems = (
+export default function MainListItems() {
+    // useHistory de react-router-dom
+    let history = useHistory();
 
+    const navegar = (ruta) => {
+        history.push(ruta);
+    }
+
+    return (
     <div>
         {/* Opción para navegar a la home */}
-        <ListItem button onClick={ navegar }>
+        <ListItem button onClick={ () => {navegar('/');} }>
             <ListItemIcon>
                 <HomeIcon />
             </ListItemIcon>
             <ListItemText primary='Home' />
         </ListItem>
         {/* Opción para navegar a Pedidos */}
-        <ListItem button onClick={ navegar }>
+        <ListItem button onClick={ () => {navegar('/pedidos');} }>
             <ListItemIcon>
                 <ShoppingCartIcon />
             </ListItemIcon>
             <ListItemText primary='Pedidos' />
         </ListItem>
         {/* Opción para navegar a Usuarios */}
-        <ListItem button onClick={ navegar }>
+        <ListItem button onClick={ () => {navegar('/usuarios');} }>
             <ListItemIcon>
                 <PeopleIcon />
             </ListItemIcon>
-            <ListItemText primary='Usarios' />
+            <ListItemText primary='Usuarios' />
         </ListItem>
-        {/* Opción para navegar a Usuarios */}
-        <ListItem button onClick={ navegar }>
+        {/* Opción para navegar a Informes */}
+        <ListItem button onClick={ () => {navegar('/informes');} }>
             <ListItemIcon>
                 <BarChartIcon />
             </ListItemIcon>
             <ListItemText primary='Informes' />
         </ListItem>
     </div>
-
-
-);
-
+    );
+}
 
 // Lista de navegación a vistas de Settings
 export const settingsListItems = (
     <div>
         {/* Opción para navegar a la home */}
-        <ListItem button onClick={ navegar }>
+        <ListItem button onClick={ () => alert('TODO') }>
             <ListItemIcon>
                 <SettingsIcon />
             </ListItemIcon>
